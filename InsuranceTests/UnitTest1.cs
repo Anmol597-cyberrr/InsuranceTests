@@ -120,6 +120,20 @@ namespace InsuranceTesters
         }
 
 
+        [Test]
+        public void Test3_ValidWithDiscount_Quote3905()
+        {
+            // Arrange
+            string expectedQuote = "$3905";
+
+            // Act
+            FillCompleteForm("35", "9", "2");
+            string quote = driver.FindElement(By.Id("finalQuote")).GetAttribute("value")!;
+
+            // Assert
+            Assert.That(quote, Is.EqualTo(expectedQuote));
+        }
+
 
 
 
