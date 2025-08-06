@@ -105,7 +105,23 @@ namespace InsuranceTesters
             Assert.That(actualQuote, Is.EqualTo(expectedQuote));
         }
 
-        
+        [Test]
+        public void Test2_InsuranceDenied_4Accidents()
+        {
+            // Arrange
+            string expectedMessage = "No Insurance for you!!  Too many accidents - go take a course!";
+
+            // Act
+            FillCompleteForm("25", "3", "4");
+            string result = driver.FindElement(By.Id("finalQuote")).GetAttribute("value")!;
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expectedMessage));
+        }
+
+
+
+
 
         [TearDown]
         public void Teardown()
